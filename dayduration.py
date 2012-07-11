@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from datetime import *
 import calendar
 import re
@@ -281,3 +283,21 @@ class DayDuration():
 
 
 ## END of class DayDuration()
+
+
+if __name__ == "__main__":
+    print('-------- running doctest --------')
+    import doctest
+    #globs = dir()
+    #globs = {'today': date(2000, 3, 1), 'foobar':1234567890}
+    today = date(2000, 3, 2) # FIXME, how can I override globals in docstring?
+    opts  = doctest.REPORT_ONLY_FIRST_FAILURE
+    opts |= doctest.NORMALIZE_WHITESPACE
+    opts |= doctest.REPORT_UDIFF
+    opts |= doctest.REPORT_CDIFF
+    opts |= doctest.ELLIPSIS
+    doctest.testmod(optionflags=opts,
+                    #globs=globs,
+                    #extraglobs=globs,
+                    )
+
